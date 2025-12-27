@@ -157,7 +157,7 @@ export default function RoomPage() {
          <input 
             type="range" min="1" max="50" value={lineWidth} 
             onChange={(e) => setLineWidth(parseInt(e.target.value))}
-            style={{ writingMode: 'bt-lr', WebkitAppearance: 'slider-vertical', width: '8px', height: '100%', background: '#333', borderRadius: '4px' }} 
+            style={{ writingMode: 'bt-lr'as any, WebkitAppearance: 'slider-vertical', width: '8px', height: '100%', background: '#333', borderRadius: '4px' }} 
          />
          <div style={{ width: '30px', height: '30px', background: '#fff', borderRadius: '50%', transform: `scale(${lineWidth/20})`, transition: 'transform 0.1s' }} />
       </div>
@@ -188,3 +188,4 @@ export default function RoomPage() {
   );
 
 }
+
