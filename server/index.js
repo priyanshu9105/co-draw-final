@@ -6,11 +6,18 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+// --- 🟢 THIS IS THE FIX FOR CRON JOB ---
+// When cron-job.org visits your link, this replies "I am awake!"
+app.get("/", (req, res) => {
+  res.send("Server is running successfully!");
+});
+// ---------------------------------------
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*", // Allow all for now
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -39,6 +46,8 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
-  console.log("SERVER RUNNING on port 3001 🚀");
+// Use the PORT provided by Render, or default to 3001 for local
+const PORT = process.env.PORT || 3001;
+server.listen(PORT, () => {
+  console.log(`SERVER RUNNING on port ${PORT} 🚀`);
 });
