@@ -5,7 +5,7 @@ import { useDraw } from "@/hooks/useDraw";
 import { io } from "socket.io-client";
 import { useParams, useRouter } from "next/navigation";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://co-draw-mr8e.onrender.com");
 
 const COLORS = ["#ffffff", "#ff00ff", "#00fff9", "#0f0", "#fffc00", "#ff4444"];
 
@@ -186,4 +186,5 @@ export default function RoomPage() {
 
     </div>
   );
+
 }
